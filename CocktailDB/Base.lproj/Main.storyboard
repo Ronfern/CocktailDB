@@ -1,24 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Drink View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="DrinkViewController" customModule="CocktailDB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MsL-5t-sV2">
+                                <rect key="frame" x="0.0" y="114" width="414" height="747"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oRk-18-ogf" customClass="NavBar" customModule="CocktailDB" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drinks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IzU-sb-gju">
+                                        <rect key="frame" x="30" y="21" width="69.5" height="28"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="liU-ZC-qu2">
+                                        <rect key="frame" x="363" y="20" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="2od-eB-d1m"/>
+                                            <constraint firstAttribute="width" constant="30" id="cWK-YQ-YYk"/>
+                                        </constraints>
+                                        <state key="normal" image="Vector"/>
+                                        <connections>
+                                            <action selector="filterButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a1Q-FO-wkA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="IzU-sb-gju" firstAttribute="leading" secondItem="oRk-18-ogf" secondAttribute="leading" constant="30" id="6rL-C7-07k"/>
+                                    <constraint firstAttribute="bottom" secondItem="IzU-sb-gju" secondAttribute="bottom" constant="21" id="7x8-vb-3qU"/>
+                                    <constraint firstItem="IzU-sb-gju" firstAttribute="top" secondItem="oRk-18-ogf" secondAttribute="top" constant="21" id="9XM-r7-kQD"/>
+                                    <constraint firstItem="liU-ZC-qu2" firstAttribute="centerY" secondItem="IzU-sb-gju" secondAttribute="centerY" id="A9F-uW-0nU"/>
+                                    <constraint firstAttribute="height" constant="70" id="DHd-Yn-1pJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="liU-ZC-qu2" secondAttribute="trailing" constant="21" id="H6w-IX-ORb"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MsL-5t-sV2" secondAttribute="bottom" constant="1" id="Bcc-Zo-CB6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MsL-5t-sV2" secondAttribute="trailing" id="aZ4-Bb-FPG"/>
+                            <constraint firstItem="oRk-18-ogf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="cqa-Kt-gQS"/>
+                            <constraint firstItem="MsL-5t-sV2" firstAttribute="top" secondItem="oRk-18-ogf" secondAttribute="bottom" id="lRF-Ef-eWi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oRk-18-ogf" secondAttribute="trailing" id="qdq-fn-Zz1"/>
+                            <constraint firstItem="MsL-5t-sV2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xcx-Xq-sE7"/>
+                            <constraint firstItem="oRk-18-ogf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ysD-aA-o7t"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="mainTableView" destination="MsL-5t-sV2" id="NsX-kk-Z7j"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-201" y="173"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="9FK-ed-ImI">
+            <objects>
+                <viewController id="uZk-0s-kce" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pb3-GG-zLe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xwo-EQ-we7">
+                                <rect key="frame" x="0.0" y="114" width="414" height="747"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RTJ-eG-Sw7" customClass="NavBar" customModule="CocktailDB" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPd-b3-10P">
+                                        <rect key="frame" x="89" y="21" width="65" height="28"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDz-8t-7ey">
+                                        <rect key="frame" x="20" y="22" width="29" height="26"/>
+                                        <state key="normal" image="backButton"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="QDz-8t-7ey" secondAttribute="bottom" constant="22" id="942-Ig-aYB"/>
+                                    <constraint firstItem="PPd-b3-10P" firstAttribute="centerY" secondItem="QDz-8t-7ey" secondAttribute="centerY" id="XpX-Z1-Nto"/>
+                                    <constraint firstItem="QDz-8t-7ey" firstAttribute="top" secondItem="RTJ-eG-Sw7" secondAttribute="top" constant="22" id="d7P-t0-AO1"/>
+                                    <constraint firstAttribute="height" constant="70" id="e1f-Jz-7UU"/>
+                                    <constraint firstItem="QDz-8t-7ey" firstAttribute="leading" secondItem="RTJ-eG-Sw7" secondAttribute="leading" constant="20" id="j2n-1H-r1J"/>
+                                    <constraint firstItem="PPd-b3-10P" firstAttribute="leading" secondItem="QDz-8t-7ey" secondAttribute="trailing" constant="40" id="zpv-wI-3ZZ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6rh-Vd-hmq" firstAttribute="bottom" secondItem="xwo-EQ-we7" secondAttribute="bottom" constant="1" id="5OA-Zm-4oq"/>
+                            <constraint firstItem="RTJ-eG-Sw7" firstAttribute="top" secondItem="6rh-Vd-hmq" secondAttribute="top" id="QWj-9Y-NHP"/>
+                            <constraint firstItem="RTJ-eG-Sw7" firstAttribute="leading" secondItem="pb3-GG-zLe" secondAttribute="leading" id="bCy-Pn-aUg"/>
+                            <constraint firstItem="xwo-EQ-we7" firstAttribute="top" secondItem="RTJ-eG-Sw7" secondAttribute="bottom" id="eW9-qw-Vwn"/>
+                            <constraint firstItem="xwo-EQ-we7" firstAttribute="leading" secondItem="6rh-Vd-hmq" secondAttribute="leading" id="ghe-Wa-dhR"/>
+                            <constraint firstItem="6rh-Vd-hmq" firstAttribute="trailing" secondItem="RTJ-eG-Sw7" secondAttribute="trailing" id="sen-vf-VSm"/>
+                            <constraint firstItem="6rh-Vd-hmq" firstAttribute="trailing" secondItem="xwo-EQ-we7" secondAttribute="trailing" id="vNk-eE-hOc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6rh-Vd-hmq"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="eRP-ey-6rs"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pkN-Xr-ABB" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="517" y="173"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Vector" width="28" height="29"/>
+        <image name="backButton" width="29" height="25"/>
+    </resources>
 </document>

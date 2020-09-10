@@ -31,10 +31,7 @@ class DrinkViewModel {
     }
     
     func numberOfRows(section: Int) -> Int {
-        guard section < drinks.count else {
-            return 0
-        }
-        return drinks[section].count
+        return drinks.getElement(at: section)?.count ?? 0
     }
     
     func countCategory() -> Int {

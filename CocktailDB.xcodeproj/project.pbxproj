@@ -13,6 +13,11 @@
 		2086A1E7250649B500285C49 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2086A1E6250649B500285C49 /* ServerManager.swift */; };
 		2086A1F22506A4D000285C49 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2086A1F12506A4D000285C49 /* CategoryModel.swift */; };
 		209C6C352508E03D0080BB52 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209C6C342508E03D0080BB52 /* NavBar.swift */; };
+		209C6C392508FB440080BB52 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209C6C382508FB440080BB52 /* FilterViewController.swift */; };
+		209C6C3D2508FBC70080BB52 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209C6C3B2508FBC70080BB52 /* FilterCell.swift */; };
+		209C6C3E2508FBC70080BB52 /* FilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 209C6C3C2508FBC70080BB52 /* FilterCell.xib */; };
+		209C6C41250941930080BB52 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 209C6C40250941930080BB52 /* Roboto-Bold.ttf */; };
+		209C6C43250AA5660080BB52 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209C6C42250AA5660080BB52 /* Array.swift */; };
 		20B474722506330900E242E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B474712506330900E242E0 /* AppDelegate.swift */; };
 		20B474742506330900E242E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B474732506330900E242E0 /* SceneDelegate.swift */; };
 		20B474762506330900E242E0 /* DrinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B474752506330900E242E0 /* DrinkViewController.swift */; };
@@ -36,6 +41,11 @@
 		2086A1E6250649B500285C49 /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
 		2086A1F12506A4D000285C49 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		209C6C342508E03D0080BB52 /* NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
+		209C6C382508FB440080BB52 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		209C6C3B2508FBC70080BB52 /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
+		209C6C3C2508FBC70080BB52 /* FilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCell.xib; sourceTree = "<group>"; };
+		209C6C40250941930080BB52 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		209C6C42250AA5660080BB52 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		20B4746E2506330900E242E0 /* CocktailDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocktailDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20B474712506330900E242E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20B474732506330900E242E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,10 +89,8 @@
 		207894DC2506AF31001B83FD /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				20FBB4AA25080C130078B0D1 /* LoadMoreCell.swift */,
-				20FBB4AB25080C130078B0D1 /* LoadMoreCell.xib */,
-				20FBB4A625080B360078B0D1 /* DrinkCell.swift */,
-				20FBB4A725080B360078B0D1 /* DrinkCell.xib */,
+				209C6C3A2508FB920080BB52 /* DrinkView */,
+				209C6C3F2508FBCD0080BB52 /* Filter */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -130,6 +138,34 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
+		209C6C3A2508FB920080BB52 /* DrinkView */ = {
+			isa = PBXGroup;
+			children = (
+				20FBB4AA25080C130078B0D1 /* LoadMoreCell.swift */,
+				20FBB4AB25080C130078B0D1 /* LoadMoreCell.xib */,
+				20FBB4A625080B360078B0D1 /* DrinkCell.swift */,
+				20FBB4A725080B360078B0D1 /* DrinkCell.xib */,
+			);
+			path = DrinkView;
+			sourceTree = "<group>";
+		};
+		209C6C3F2508FBCD0080BB52 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				209C6C3B2508FBC70080BB52 /* FilterCell.swift */,
+				209C6C3C2508FBC70080BB52 /* FilterCell.xib */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		209C6C44250AA57A0080BB52 /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				209C6C42250AA5660080BB52 /* Array.swift */,
+			);
+			path = Extention;
+			sourceTree = "<group>";
+		};
 		20B474652506330900E242E0 = {
 			isa = PBXGroup;
 			children = (
@@ -153,10 +189,12 @@
 			children = (
 				20B474712506330900E242E0 /* AppDelegate.swift */,
 				20B474732506330900E242E0 /* SceneDelegate.swift */,
+				209C6C44250AA57A0080BB52 /* Extention */,
 				209C6C362508F48F0080BB52 /* View */,
 				209C6C332508DE5E0080BB52 /* Server */,
 				2086A1F025067CFC00285C49 /* Paginator */,
 				20B474752506330900E242E0 /* DrinkViewController.swift */,
+				209C6C382508FB440080BB52 /* FilterViewController.swift */,
 				2086A1F32506A4D700285C49 /* Model */,
 				20FBB4A52507E3F40078B0D1 /* Font */,
 				20B474772506330900E242E0 /* Main.storyboard */,
@@ -179,6 +217,7 @@
 		20FBB4A52507E3F40078B0D1 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				209C6C40250941930080BB52 /* Roboto-Bold.ttf */,
 				20FBB4A12507E3EE0078B0D1 /* Roboto-Medium.ttf */,
 				20FBB4A22507E3EF0078B0D1 /* Roboto-Regular.ttf */,
 			);
@@ -259,6 +298,8 @@
 				20FBB4AD25080C130078B0D1 /* LoadMoreCell.xib in Resources */,
 				20B4747E2506330C00E242E0 /* LaunchScreen.storyboard in Resources */,
 				20B4747B2506330C00E242E0 /* Assets.xcassets in Resources */,
+				209C6C41250941930080BB52 /* Roboto-Bold.ttf in Resources */,
+				209C6C3E2508FBC70080BB52 /* FilterCell.xib in Resources */,
 				20FBB4A925080B360078B0D1 /* DrinkCell.xib in Resources */,
 				20B474792506330900E242E0 /* Main.storyboard in Resources */,
 			);
@@ -319,7 +360,10 @@
 				20B474742506330900E242E0 /* SceneDelegate.swift in Sources */,
 				2086A1E52506497700285C49 /* DrinkViewModel.swift in Sources */,
 				209C6C352508E03D0080BB52 /* NavBar.swift in Sources */,
+				209C6C43250AA5660080BB52 /* Array.swift in Sources */,
 				20FBB4992507AF260078B0D1 /* DrinkModel.swift in Sources */,
+				209C6C3D2508FBC70080BB52 /* FilterCell.swift in Sources */,
+				209C6C392508FB440080BB52 /* FilterViewController.swift in Sources */,
 				2086A1E7250649B500285C49 /* ServerManager.swift in Sources */,
 				207894DE2506BDE1001B83FD /* RealmStorage.swift in Sources */,
 				2086A1E32506483A00285C49 /* TableViewPaginator.swift in Sources */,

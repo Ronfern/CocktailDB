@@ -29,7 +29,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEu-AO-qRC">
-                        <rect key="frame" x="141" y="60.5" width="39.5" height="19"/>
+                        <rect key="frame" x="141" y="60.5" width="158" height="19"/>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -39,6 +39,7 @@
                     <constraint firstItem="h09-Of-Boh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="OWu-kS-jum"/>
                     <constraint firstItem="sEu-AO-qRC" firstAttribute="leading" secondItem="h09-Of-Boh" secondAttribute="trailing" constant="21" id="X1p-HZ-64S"/>
                     <constraint firstItem="sEu-AO-qRC" firstAttribute="centerY" secondItem="h09-Of-Boh" secondAttribute="centerY" id="k9T-rE-Rjw"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="sEu-AO-qRC" secondAttribute="trailing" constant="5" id="oYB-os-5b5"/>
                     <constraint firstItem="h09-Of-Boh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="zJs-8q-h9z"/>
                 </constraints>
             </tableViewCellContentView>

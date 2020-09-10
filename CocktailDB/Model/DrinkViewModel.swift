@@ -9,40 +9,56 @@ import RealmSwift
 
 protocol DrinkViewModelProtocol: class {
     func drinksFetched(success: Bool, drinkCount: Int)
+    func refreshWithFilters()
 }
 
 class DrinkViewModel {
-    private unowned var delegate: DrinkViewModelProtocol?
+    private weak var delegate: DrinkViewModelProtocol?
     private var categories = Category.all()
     private var drinks: [[Drink]] = []
-
+    
     init(delegate: DrinkViewModelProtocol) {
         self.delegate = delegate
         self.fetchAll()
     }
     
+    func refresh() {
+        self.drinks.removeAll()
+        delegate?.refreshWithFilters()
+    }
     func numberOfSections() -> Int {
         return drinks.count
     }
     
     func numberOfRows(section: Int) -> Int {
+        guard section < drinks.count else {
+            return 0
+        }
         return drinks[section].count
     }
-
-    func getCategory(at index: Int) -> String? {
-        guard index < Category.all().count else {
+    
+    func countCategory() -> Int {
+        return Category.all().count
+    }
+    
+    func getCategoryModelBySelection(at index: Int) -> CategoryCollection? {
+        
+        guard index < categories.filter("selection = true").count else {
             return nil
         }
-        return Category.all()[index].strCategory
+        
+        return categories.filter("selection = true")[index]
+    }
+    
+    func getCategoryModel(at index: Int) -> CategoryCollection? {
+  
+        return categories[index]
     }
     
     func getDrink(in section: Int, at index: Int) -> Drink? {
-        guard index < drinks[section].count else {
-            return nil
-        }
-        return drinks[section][index]
+        return drinks.getElement(at: section)?.getElement(at: index)
     }
-
+    
     func fetchAll() {
         ServerManager.sharedInstance.fetchAllCategory { (result) in
             switch result.response?.statusCode {
@@ -61,14 +77,18 @@ class DrinkViewModel {
     func fetchDrinks(offset: Int, limit: Int, shouldAppend: Bool) {
         let page = drinks.count
         let work = DispatchWorkItem {
-            ServerManager.sharedInstance.fetchDrinks(by: self.getCategory(at: page) ?? "") { (result) in
+            guard let category = self.getCategoryModelBySelection(at: page)?.strCategory  else {
+                self.delegate?.drinksFetched(success: false, drinkCount: 0)
+                return
+            }
+            ServerManager.sharedInstance.fetchDrinks(by: category) { (result) in
                 switch result.response?.statusCode {
                 case 200?:
                     if  let data = result.data,
                         let drinksResponseModel = try? JSONDecoder().decode(Drinks.self, from: data) {
                         if shouldAppend == false {
-                            self.drinks.removeAll()
-                        }
+                               self.drinks.removeAll()
+                           }
                         self.drinks.append(drinksResponseModel.drinks)
                         self.delegate?.drinksFetched(success: true, drinkCount: drinksResponseModel.drinks.count)
                     } else {
@@ -80,7 +100,6 @@ class DrinkViewModel {
             }
         }
         if drinks.count == 0 {
-            self.fetchAll()
             DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: work)
         } else {
             DispatchQueue.main.async(execute: work)

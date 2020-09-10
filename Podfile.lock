@@ -1,0 +1,34 @@
+PODS:
+  - Alamofire (5.2.2)
+  - Nuke (9.1.2)
+  - PaginatedTableView (1.0.1)
+  - Realm (5.3.5):
+    - Realm/Headers (= 5.3.5)
+  - Realm/Headers (5.3.5)
+  - RealmSwift (5.3.5):
+    - Realm (= 5.3.5)
+
+DEPENDENCIES:
+  - Alamofire
+  - Nuke
+  - PaginatedTableView
+  - RealmSwift
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Nuke
+    - PaginatedTableView
+    - Realm
+    - RealmSwift
+
+SPEC CHECKSUMS:
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  Nuke: dd2e6be6a34c042a7861e190632781d11f253026
+  PaginatedTableView: 294d9831d5ddf5c0dcfbb4a281d4fcfb8d12f55a
+  Realm: 2b52fcc86fc0ed3d75a56ac0eb1e73c4f1a60e16
+  RealmSwift: a6ea2ea561039fc3833c08dec81371a9a3bb5ca6
+
+PODFILE CHECKSUM: 00651d724ac91853288ea1861ba4890731888c74
+
+COCOAPODS: 1.9.3

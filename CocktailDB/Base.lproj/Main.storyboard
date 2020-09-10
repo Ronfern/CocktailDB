@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jdg-UY-oU9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -9,6 +9,9 @@
     <customFonts key="customFonts">
         <array key="Roboto-Medium.ttf">
             <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -21,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MsL-5t-sV2">
-                                <rect key="frame" x="0.0" y="114" width="414" height="747"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="717"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oRk-18-ogf" customClass="NavBar" customModule="CocktailDB" customModuleProvider="target">
@@ -61,31 +64,46 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MsL-5t-sV2" secondAttribute="bottom" constant="1" id="Bcc-Zo-CB6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MsL-5t-sV2" secondAttribute="trailing" id="aZ4-Bb-FPG"/>
                             <constraint firstItem="oRk-18-ogf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="cqa-Kt-gQS"/>
-                            <constraint firstItem="MsL-5t-sV2" firstAttribute="top" secondItem="oRk-18-ogf" secondAttribute="bottom" id="lRF-Ef-eWi"/>
+                            <constraint firstItem="MsL-5t-sV2" firstAttribute="top" secondItem="oRk-18-ogf" secondAttribute="bottom" constant="30" id="lRF-Ef-eWi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oRk-18-ogf" secondAttribute="trailing" id="qdq-fn-Zz1"/>
                             <constraint firstItem="MsL-5t-sV2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xcx-Xq-sE7"/>
                             <constraint firstItem="oRk-18-ogf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ysD-aA-o7t"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="icS-Tq-Kcs"/>
                     <connections>
                         <outlet property="mainTableView" destination="MsL-5t-sV2" id="NsX-kk-Z7j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-201" y="173"/>
+            <point key="canvasLocation" x="708.69565217391312" y="172.76785714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--Filter View Controller-->
         <scene sceneID="9FK-ed-ImI">
             <objects>
-                <viewController id="uZk-0s-kce" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FilterV" id="uZk-0s-kce" customClass="FilterViewController" customModule="CocktailDB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pb3-GG-zLe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xwo-EQ-we7">
-                                <rect key="frame" x="0.0" y="114" width="414" height="747"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOR-uB-oCl">
+                                <rect key="frame" x="27" y="755" width="360" height="53"/>
+                                <color key="backgroundColor" red="0.15321248770000001" green="0.15324008459999999" blue="0.15320384500000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="g2G-uy-ouE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                <state key="normal" title="APPLY">
+                                    <color key="titleColor" red="0.9999160171" green="1" blue="0.99987202880000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="applyButtonTapped:" destination="uZk-0s-kce" eventType="touchUpInside" id="F0P-2f-Ytx"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xwo-EQ-we7">
+                                <rect key="frame" x="0.0" y="144" width="414" height="611"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RTJ-eG-Sw7" customClass="NavBar" customModule="CocktailDB" customModuleProvider="target">
@@ -100,6 +118,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDz-8t-7ey">
                                         <rect key="frame" x="20" y="22" width="29" height="26"/>
                                         <state key="normal" image="backButton"/>
+                                        <connections>
+                                            <action selector="backButtonTapped:" destination="uZk-0s-kce" eventType="touchUpInside" id="Kdw-6H-JFl"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -115,21 +136,45 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="6rh-Vd-hmq" firstAttribute="bottom" secondItem="xwo-EQ-we7" secondAttribute="bottom" constant="1" id="5OA-Zm-4oq"/>
+                            <constraint firstItem="6rh-Vd-hmq" firstAttribute="trailing" secondItem="NOR-uB-oCl" secondAttribute="trailing" constant="27" id="FFe-C8-MPp"/>
                             <constraint firstItem="RTJ-eG-Sw7" firstAttribute="top" secondItem="6rh-Vd-hmq" secondAttribute="top" id="QWj-9Y-NHP"/>
+                            <constraint firstItem="NOR-uB-oCl" firstAttribute="leading" secondItem="6rh-Vd-hmq" secondAttribute="leading" constant="27" id="SgG-fv-fAY"/>
                             <constraint firstItem="RTJ-eG-Sw7" firstAttribute="leading" secondItem="pb3-GG-zLe" secondAttribute="leading" id="bCy-Pn-aUg"/>
-                            <constraint firstItem="xwo-EQ-we7" firstAttribute="top" secondItem="RTJ-eG-Sw7" secondAttribute="bottom" id="eW9-qw-Vwn"/>
+                            <constraint firstItem="6rh-Vd-hmq" firstAttribute="bottom" secondItem="NOR-uB-oCl" secondAttribute="bottom" constant="54" id="cRm-3N-DNB"/>
+                            <constraint firstItem="xwo-EQ-we7" firstAttribute="top" secondItem="RTJ-eG-Sw7" secondAttribute="bottom" constant="30" id="eW9-qw-Vwn"/>
                             <constraint firstItem="xwo-EQ-we7" firstAttribute="leading" secondItem="6rh-Vd-hmq" secondAttribute="leading" id="ghe-Wa-dhR"/>
+                            <constraint firstItem="NOR-uB-oCl" firstAttribute="top" secondItem="xwo-EQ-we7" secondAttribute="bottom" id="hMH-gU-yek"/>
                             <constraint firstItem="6rh-Vd-hmq" firstAttribute="trailing" secondItem="RTJ-eG-Sw7" secondAttribute="trailing" id="sen-vf-VSm"/>
                             <constraint firstItem="6rh-Vd-hmq" firstAttribute="trailing" secondItem="xwo-EQ-we7" secondAttribute="trailing" id="vNk-eE-hOc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6rh-Vd-hmq"/>
                     </view>
                     <navigationItem key="navigationItem" id="eRP-ey-6rs"/>
+                    <connections>
+                        <outlet property="filterTableView" destination="xwo-EQ-we7" id="ZwC-ah-p24"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pkN-Xr-ABB" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="517" y="173"/>
+            <point key="canvasLocation" x="1426.0869565217392" y="172.76785714285714"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1Gj-sU-pFT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Jdg-UY-oU9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9vc-Lk-fCU">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="sUU-0B-2fk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bcU-S1-C2r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-201.44927536231884" y="172.76785714285714"/>
         </scene>
     </scenes>
     <resources>

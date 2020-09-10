@@ -28,8 +28,19 @@ class DrinkViewController: UIViewController {
         tableviewPaginator = TableviewPaginator(paginatorUI: self, delegate: self)
         tableviewPaginator?.initialSetup()
     }
-    
+    override func viewDidDisappear(_ animated: Bool) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 25) {
+            self.tableviewPaginator?.refresh()
+        }
+    }
     @IBAction private func filterButtonTapped(_ sender: Any) {
+        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FilterV") as? FilterViewController {
+            
+            viewController.viewModel = viewModel
+            if let navigator = navigationController {
+                navigator.pushViewController(viewController, animated: true)
+            }
+        }
         
     }
 }
@@ -77,7 +88,7 @@ extension DrinkViewController: UITableViewDataSource {
         let view = UIView(frame: CGRect(x:20, y:0, width:tableView.frame.size.width, height:18))
         let label = UILabel(frame: CGRect(x:20, y:5, width:tableView.frame.size.width, height:18))
         label.font = UIFont.init(name: "Roboto-Regular", size: 14)
-        label.text = viewModel?.getCategory(at: section)
+        label.text = viewModel?.getCategoryModelBySelection(at: section)?.strCategory
         label.textColor = #colorLiteral(red: 0.4940612912, green: 0.4941501021, blue: 0.4940556288, alpha: 1)
         view.addSubview(label);
         view.backgroundColor = UIColor.clear
@@ -126,13 +137,21 @@ extension DrinkViewController: UITableViewDelegate {
 }
 
 extension DrinkViewController: DrinkViewModelProtocol {
+    
+    func refreshWithFilters() {
+        tableviewPaginator?.refresh()
+    }
+    
     func drinksFetched(success: Bool, drinkCount: Int) {
         
         if success {
             tableviewPaginator?.incrementOffsetBy(delta: drinkCount)
         }
         tableviewPaginator?.partialDataFetchingDone()
-        mainTableView.reloadData()
+        DispatchQueue.main.async {
+            self.mainTableView.reloadData()
+        }
+        
     }
 }
 

@@ -34,6 +34,7 @@ final class Category: Object, Decodable {
 final class CategoryCollection : Object, Decodable {
     
     @objc dynamic var strCategory : String?
+    @objc dynamic var selection: Bool = true
     
     enum CodingKeys: CodingKey {
         
@@ -53,6 +54,7 @@ extension Category {
     static func all(in realm: Realm = RealmStorage.sharedInstance.uiRealm) -> List<CategoryCollection> {
         return realm.objects(Category.self).first?.categoryCollection ?? List()
     }
+    
     
     func writeToRealm(in realm: Realm = RealmStorage.sharedInstance.uiRealm) {
         do {

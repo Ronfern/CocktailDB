@@ -28,11 +28,7 @@ class DrinkViewController: UIViewController {
         tableviewPaginator = TableviewPaginator(paginatorUI: self, delegate: self)
         tableviewPaginator?.initialSetup()
     }
-    override func viewDidDisappear(_ animated: Bool) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 25) {
-            self.tableviewPaginator?.refresh()
-        }
-    }
+
     @IBAction private func filterButtonTapped(_ sender: Any) {
         if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FilterV") as? FilterViewController {
             
